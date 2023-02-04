@@ -1,0 +1,264 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+{{ 'main-login.css' | asset_url | stylesheet_tag }}
+{{ 'main-register.css' | asset_url | stylesheet_tag }}
+{{ 'main-account.css' | asset_url | stylesheet_tag }}
+<script>
+  (function() {
+    var REDIRECT_PATH = '/account';
+
+    var selector = '#create_customer, form[action$="/account"][method="post"]',
+        $form = document.querySelectorAll(selector)[0];
+
+    if ($form) {
+      $redirect = document.createElement('input');
+      $redirect.setAttribute('name', 'return_to');
+      $redirect.setAttribute('type', 'hidden');
+      $redirect.value = REDIRECT_PATH;
+      $form.appendChild($redirect);
+    }
+  })();
+</script>
+{%- style -%}
+  
+  /* 1/15日編集:LINEアプリ余白 */
+.p-customerLoginWrapper {
+    display: flex;
+    gap: 58px;
+}
+
+  .socialplus-association-component .socialplus-association-row {
+    border: 1px solid #666;
+    max-width: 520px;
+}
+  
+.socialplus-association-component {
+    margin-bottom: 3em;
+}
+.socialplus-association-component .socialplus-association-row {
+    border: 1px solid #666;
+}
+
+@media screen and (max-width: 990px){
+  .socialplus-association-component {
+    margin-bottom: 1em;
+}
+  .p-customerLoginWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 147px;
+    padding-top: 55px;
+    margin-top: 0px;
+  }
+}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    
+  }
+    @media screen and (max-width: 990px) {
+  .p-order-container__itemRight {
+    font-size: 14px;
+}
+  .p-order-container__itemLeft {
+    font-size: 12px;
+}
+    }
+{%- endstyle -%}
+
+<!-- account追加 -->
+<div class="customer account section-{{ section.id }}-padding" id="account">
+        <h2 class="l-title p-login__title p-title">
+           <p class="c-title-en p-login__title--en">ACCOUNT</p>
+           <p class="c-title-ja p-login__title--ja">マイページ</p>
+       </h2>
+
+<!-- CRM PLUS on LINE ID連携ボタン -->
+{% render 'socialplus-error-banner' %}
+{% render 'socialplus-association', providers: 'line' %}
+
+<!--   SPのみメニュー表示させる -->
+  <section class="spOnly p-customerBtn">
+    <h2 class="p-customerBtn__heading">メニュー選択</h2>
+    <ul class="p-customerBtn__lists">
+          <li class="p-customerBtn__list">
+            <a class="c-btn c-btn-white" href="#">注文履歴の確認</a>
+        </li>
+        <li class="p-customerBtn__list">
+            <a class="c-btn c-btn-gray" href="{{ routes.account_addresses_url }}">お届け先の登録</a>
+        </li>
+    </ul>
+  </section>
+
+  <div class="p-customerLoginWrapper">
+    <div class="p-customerLoginWrapper__left">
+
+      {% paginate customer.orders by 5 %}
+        {%- if customer.orders.size > 0 -%}
+          <table role="table" class="order-history p-order-history">
+            <caption class="visually-hidden">{{ 'customer.orders.title' | t }}</caption>
+            <thead role="rowgroup">
+              <tr role="row" class="p-order-history__row">
+                <th id="ColumnDate" scope="col" role="columnheader">注文日</th>
+                <th id="ColumnOrder" scope="col" role="columnheader">注文番号</th>
+                <th id="ColumnPayment" scope="col" role="columnheader">支払い状況</th>
+                <th id="ColumnFulfillment" scope="col" role="columnheader">{{ 'customer.orders.fulfillment_status' | t }}</th>
+                <th id="ColumnTotal" scope="col" role="columnheader">合計金額</th>
+              </tr>
+            </thead>
+            <tbody role="rowgroup">
+              {%- for order in customer.orders -%}
+                <tr role="row" class="p-rowgroup-lists">
+                  <td class="RowDate" headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
+                    {{ order.created_at | time_tag: format: 'basic'  }}
+                  </td>
+                  <td
+                    id="RowOrder"
+                    role="cell"
+                    headers="ColumnOrder"
+                    data-label="{{ 'customer.orders.order_number' | t }}"
+                  >
+                    <a href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">
+                 {{ order.name }} 
+                    </a>
+
+                  </td>
+                  <td class="RowPayment" headers="RowOrder ColumnPayment" role="cell" data-label="{{ 'customer.orders.payment_status' | t }}">
+                    {{ order.financial_status_label }}
+                  </td>
+                  <td class="RowFullfilment" headers="RowOrder ColumnFulfillment" role="cell" data-label="{{ 'customer.orders.fulfillment_status' | t }}">
+                    {{ order.fulfillment_status_label }}
+                  </td>
+                  <td class="RowPrice" headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
+                    {{ order.total_price | money_with_currency }}</td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+        {%- else -%}
+          <p>{{ 'customer.orders.none' | t }}</p>
+        {%- endif -%}
+
+        {%- if paginate.pages > 1 -%}
+          {%- if paginate.parts.size > 0 -%}
+              <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
+                <ul role="list">
+                {%- if paginate.previous -%}
+                  <li>
+                    <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                      </svg>
+                    </a>
+                  </li>
+                {%- endif -%}
+
+                {%- for part in paginate.parts -%}
+                  <li>
+                    {%- if part.is_link -%}
+                      <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</a>
+                    {%- else -%}
+                      {%- if part.title == paginate.current_page -%}
+                        <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</span>
+                      {%- else -%}
+                        <span>{{ part.title }}</span>
+                      {%- endif -%}
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+
+                {%- if paginate.next -%}
+                  <li>
+                    <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}" >
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                      </svg>
+                    </a>
+                  </li>
+                {%- endif -%}
+                </ul>
+              </nav>
+          {%- endif -%}
+        {%- endif -%}
+      {% endpaginate %}
+    </div>
+
+    <div class="p-customerAddrress">
+      <h2>お届け先住所</h2>
+                   {% if customer.default_address.zip %}
+                     <span class="p-address-padding">
+                     〒{{ customer.default_address.zip }}
+                   </span>
+                   {% endif %}
+                  <span class="p-address-padding">
+                  {% if customer.default_address.province %}
+                    {{ customer.default_address.province }}
+                  {% endif %}
+                  {% if customer.default_address.city %}                  
+                  {{ customer.default_address.city }}
+                  {% endif %}   
+                  {% if customer.default_address.address1 %}                          
+                  {{ customer.default_address.address1 }}
+                  {% endif %} 
+                  </span><br>
+                  {% if customer.default_address.phone %}
+                  <span class="p-address-padding">
+      TEL: {{ customer.default_address.phone }}
+                  </span><br>
+                  {% endif %} 
+                  {% if customer.default_address.name %}
+                  <span class="p-address-padding">
+                  {{ customer.last_name }}   {{ customer.first_name }}
+                  </span>
+                  {% endif %} 
+      <div class="p-white-btn">
+          <a  class="c-btn c-btn-white" href="{{ routes.account_addresses_url }}">
+           お届け先住所を変更する
+          </a>
+      </div>
+       <div class="p-logout-btn">
+          <a  class="c-btn" href="{{ routes.account_logout_url }}">
+             {{ 'customer.log_out' | t }}
+        </a>
+        </div>
+    </div>
+
+  </div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.main-account.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

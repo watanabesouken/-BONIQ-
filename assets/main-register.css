@@ -1,0 +1,408 @@
+/* orderページ */
+
+ .p-order-container__centerList--image {
+    display: flex;
+    align-items: center;
+   gap:3.5rem;
+}
+.p-order-container__centerList--image img{
+  max-width: 200px;
+  width: 13.228vw;
+}
+
+.p-order-container__centerList--right {
+    display: flex;
+    padding-right: 12.037vw;
+    justify-content: space-around;
+}
+
+.p-order-container__centerList--imageText {
+    display: flex;
+    flex-direction: column;
+}
+.p-order-container__topRight {
+    display: flex;
+    padding-right: 12.037vw;
+}
+.p-order-container__topRight .p-order-container__topList.c-white-gray {
+    width: 7.5vw;
+    text-align: center;
+}
+.p-order-container__centerList--right p:last-of-type {
+    text-align: right;
+}
+.p-order-container__centerList--right p {
+    width: 7.45vw;
+    text-align: center;
+}
+.p-order-container__topRight .p-order-container__topList.c-white-gray {
+    width: 10.2vw;
+    text-align: center;
+}
+
+.p-order-container__topList.p-order-containerPrice.c-white-gray {
+    width: 4vw;
+}
+.p-order-container__topList.p-order-containerTotal.c-white-gray {
+    width: 4vw;
+}
+p.p-order-container__topList.p-order-containerVariant.c-white-gray {
+    width: 14.5vw;
+}
+p.p-order-container__topList.p-order-containerTotal.c-white-gray {
+    width: 4vw;
+}
+
+.p-order-container__centerList--right p:first-of-type {
+    width: 11.6vw;
+}
+
+  .p-order-container {
+    max-width: 1360px;
+    margin: 0 auto;
+  }
+  .p-order-container__top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom:0.992vw;
+  }
+  .p-order-container__bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2.315vw;
+    align-items: center;
+}
+   .p-order-container__centerList {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 2.315vw;
+    align-items: center;
+}
+.p-order-container__center{
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.p-order-container__bottomRight{
+  padding-right: 12.037vw;
+}
+.p-order-container__item {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.976vw;
+    padding-bottom: 2.183vw;
+}
+.p-order-container__item:last-of-type{
+  padding-bottom: 0;
+}
+.p-order-container__itemLeft{
+  color: #fff;
+  opacity: 0.5;
+}
+
+.c-white-gray {
+    color: #fff;
+    opacity: 0.5;
+}
+
+.p-order-container__note {
+    padding-left: 10px;
+    padding-top: 12px;
+}
+.p-orderNumber {
+    padding-bottom: 20px;
+}
+
+:is(.account,.order) p {
+    margin: 0;
+}
+
+    .p-order-container__centerList--rightSponly{
+    display: none;
+  }
+
+.l-title .c-title-ja {
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+   font-family: yu-gothic-pr6n, sans-serif;
+}
+
+.l-title .c-title-en {
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+}
+.c-white {
+    font-family: yu-gothic-pr6n, sans-serif;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 990px){
+.p-order-container__centerList {
+    display: flex;
+    justify-content: space-between;
+    padding: 2.315vw 0;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 2.6rem;
+}
+/*   最終修正__ */
+  .p-field__lists {
+    padding: 0 0 30px;
+    margin: 0;
+}
+  .p-field__list.l-field__list:nth-of-type(5){
+    padding-bottom:0px;
+  }
+    .p-order-container__centerList--image{
+      width:100%;
+          gap: 4vw;
+    }
+  .p-order-container__centerList--image img {
+    width: 16.8vw;
+}
+.p-order-container__centerList--imageText span {
+    color: #fff;
+}
+  .p-order-container__centerList--rightPconly{
+    display: none;
+  }
+    .p-order-container__centerList--rightSponly{
+    display: block;
+  }
+    .p-order-container__top {
+    display: none;
+  }
+  .p-order-container__bottom {
+    flex-direction: column-reverse;
+    align-items: end;
+    gap: 30px;
+    padding-top:30px;
+}
+.p-order-container__bottomLeft {
+    width: 100%;
+}
+.p-order-container__bottomRight {
+  padding-right: 0;
+}
+
+  .l-title.p-title.p-order__title {
+    gap: 10px;
+}
+  
+.p-order-container__centerList--rightPrice.p-order-container__centerList--rightSponly {
+    font-size: 14px;
+}
+  .l-order.l-login.p-order {
+    padding: 26px 0 140px;
+}
+  .p-order-container__itemRight {
+    font-size: 14px;
+}
+  .p-order-container__itemLeft {
+    font-size: 12px;
+}
+}
+
+body {
+    box-sizing: border-box;
+    z-index: -9999;
+    color: #fff;
+ font-family: yu-gothic-pr6n, sans-serif;
+  font-weight: 400;
+}
+.p-field__list.l-field__list:nth-of-type(3) {
+    padding-top: 23px;
+    padding-bottom: 23px;
+}
+.p-field__list.l-field__list:nth-of-type(4) {
+    padding-top: 23px;
+    padding-bottom: 23px;
+}
+.p-field__list.l-field__list:nth-of-type(5) {
+    padding-top: 23px;
+}
+.c-white {
+    color: #fff;
+}
+
+.p-register__instruction.c-underline--gray p {
+    margin: 0
+}
+.l-register {
+    padding-bottom: 140px;
+    padding-top: 195px;
+}
+.register {
+    background-color: #515253;
+}
+
+.l-title.p-title.p-register__title {
+    margin: 0 auto;
+    max-width: 92%;
+    box-sizing: content-box;
+    padding: 0 25px;
+}
+
+.p-register__inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 90px 4% 0px;
+   box-sizing:content-box;
+}
+
+.p-field__list {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 23px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+.p-field__lists {
+    padding: 0px 0px 50px;
+   margin:0px;
+}
+
+.p-field__list:last-of-type{
+    border-bottom: none;
+}
+
+.p-field__label {
+    font-size: 14px;
+    padding-bottom: 9px;
+}
+
+.p-field__note{
+    font-size: 12px;
+}
+
+.p-register__note {
+    padding-top: 13px;
+    font-size: 12px;
+}
+
+.p-login__new--button {
+    padding-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.c-btn.c-btn-white span {
+    display: inline-block;
+    width: 100%;
+}
+
+/* 固定ID変更2箇所 */
+.register.l-section.p-section {
+    padding: 65px 0 140px;
+}
+
+.register.l-section.p-section .p-login-btn {
+    padding-bottom: 140px;
+   border-bottom:none;
+}
+.p-loginBack-btn {
+    text-align: center;
+}
+
+.p-loginBackBtn {
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.dli-arrow-left {
+     display: inline-block;
+    background-color: transparent;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    padding: 7px 14px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid rgba(255,255,255,.2);
+   transition:all .3s ease-in;
+}
+
+.p-loginBackBtn:hover  .dli-arrow-left{
+   background-color:rgba(255,255,255,.2);
+    border: 1px solid #515253;
+}
+
+  @media screen and (max-width: 990px) {
+    .c-underline--gray {
+    padding-bottom: 22px;
+}
+    .p-register__inner {
+    padding: 38px 25px 0px;
+}
+    .p-loginBackBtn {
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    /* justify-content: center; */
+    align-items: center;
+    justify-content: inherit;
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 240px;
+}
+/*     #shopify-section-template--16667551629565__main {
+    padding: 25px 0 50px;
+} */
+    
+/*     固定ID箇所 */
+    .register.l-section.p-section{
+          padding: 25px 0 50px;
+    }
+
+/*     固定ID箇所 */
+
+    .register.l-section.p-section .p-login-btn{
+          padding-bottom: 35px;
+    }
+        .p-login__new--button {
+    padding-top: 35px;
+    text-align: center;
+}  
+    .l-title.p-title.p-register__title {
+    margin: 0 auto;
+    max-width: 1360px;
+    box-sizing: content-box;
+    padding: 0 25px;
+    gap: 10px;
+}
+
+    /*     固定ID箇所 */
+    
+/*     #shopify-section-template--16667551629565__main .p-login-btn {
+    padding-bottom: 35px;
+}
+ */
+      .register.l-section.p-section .p-login-btn {
+    padding-bottom: 35px;
+}
+    
+    
+  .l-title .c-title-en {
+    font-size: 44px;
+    color: #fff;
+    opacity: 0.07;
+    letter-spacing: 0.1em;
+    margin-top:0px;
+}
+
+   .l-title .c-title-ja {
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+}
+  }
+
+
+a.p-order-container__centerList--image:hover .c-underlineHover:after {
+    transform: scale(1);
+}

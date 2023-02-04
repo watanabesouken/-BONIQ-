@@ -1,0 +1,140 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+{{ 'main-login.css' | asset_url | stylesheet_tag }}
+{{ 'main-register.css' | asset_url | stylesheet_tag }}
+{{ 'main-account.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+ <section class="order l-section p-section">
+     <div class="l-order l-login p-order">
+       <h2 class="l-title p-title p-order__title">
+         <p class="c-title-en p-login__title--en">ORDER</p>
+         <p class="c-title-ja p-login__title--ja">注文詳細</p>
+       </h2>
+
+       <div class="p-order-container">
+         
+         <h2 class="c-white-gray p-orderNumber">ご注文番号 <span>#{{ order.order_number }}</span></h2>
+          {%- if order.cancelled -%}
+        {%- assign cancelled_at = order.cancelled_at | time_tag: format: "date_at_time" -%}
+        <p>{{ 'customer.order.cancelled_html' | t: date: cancelled_at }}</p>
+        <p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason_label }}</p>
+      {%- endif -%}
+      
+         <div class="p-order-container__top">
+          <div class="p-order-container__topLeft">
+           <p class="p-order-container__topList p-order-containerProduct c-white-gray">{{ 'customer.order.product' | t }}</p>
+          </div>
+          <div class="p-order-container__topRight">
+           <p class="p-order-container__topList p-order-containerPrice c-white-gray">単価</p>
+           <p class="p-order-container__topList p-order-containerVariant c-white-gray">{{ 'customer.order.quantity' | t }}</p>
+           <p class="p-order-container__topList p-order-containerTotal c-white-gray">{{ 'customer.order.total' | t }}</p>
+          </div>
+         </div>
+         
+       <!--         真ん中のボディ箇所 -->  
+         <div class="p-order-container__center">
+    　　　　　　{%- for line_item in order.line_items -%}
+           <div class="p-order-container__centerList">
+                 {%- if line_item.url != blank -%}
+                    <a class="p-order-container__centerList--image" href="{{ line_item.url }}">
+                      {{ line_item.image | img_url: '200x200' | img_tag }}
+                    <div class="p-order-container__centerListPrice">
+                      <p class="c-underlineHover c-white"> {{ line_item.title }}</p>
+                     <div class=" p-order-container__centerList--rightPrice p-order-container__centerList--rightSponly">
+                       <span class="c-white">{{ line_item.original_price | money }}</span>
+                      <span class="c-white"> × {{ line_item.quantity }}点</span>
+                       </div>
+                    </div>
+                    </a>
+                  {%- endif -%}
+             <div class="p-order-container__centerList--right p-order-container__centerList--rightPconly">
+               <p class="p-order-container__centerList--right1">
+                       <span>{{ line_item.original_price | money }}</span>
+                </p>
+               <p class="p-order-container__centerList--rightPconly">{{ line_item.quantity }}</p>
+               <p class="p-order-container__centerList--rightPconly">{{ line_item.final_price | money }}</p>
+             </div>
+             
+           </div>
+            {% endfor %}
+         </div>
+<!--         真ん中のボディ箇所 -->
+         
+         {%- for line_item in order.line_items -%}
+         <div class="p-order-container__bottom">
+           <div class="p-order-container__bottomLeft">
+             <p class="c-white-gray">備考欄</p>
+             <p class="p-order-container__note" data-label="ordernote">
+               {{ order.note }}
+           <!-- {{ order.note }} -->
+             </p>
+           </div>
+           <div class="p-order-container__bottomRight">
+             <div class="p-order-container__item p-order-container__itemTotalPrice">
+               <p class="p-order-container__itemLeft c-white-gray">商品合計金額</p>
+               <p class="p-order-container__itemRight"data-label="{{ 'customer.order.subtotal' | t }}">{{ order.line_items_subtotal_price | money }}</p>
+             </div>
+            {%- for shipping_method in order.shipping_methods -%}
+             <div class="p-order-container__item p-order-container__itemShipping">
+               <p class="p-order-container__itemLeft c-white-gray">送料</p>
+               <p class="p-order-container__itemRight"　data-label="{{ 'customer.order.shipping' | t }}">{{ shipping_method.price | money }}</p>
+             </div>
+     　　　　　　　{%- endfor -%}
+             <div class="p-order-container__item p-order-container__itemTotalPay">
+               <p class="p-order-container__itemLeft c-white-gray">お支払い合計金額</p>
+               <p class="p-order-container__itemRight"　data-label="{{ 'customer.order.total' | t }}">{{ order.total_price | money_with_currency }}</p>
+             </div>
+           </div>
+          </div>
+ 　　　　　　　{% endfor %}
+       </div>
+<!--      p-order-container -->
+     </div>     
+<!-- l-order l-login p-order -->
+   </section>
+
+
+{% schema %}
+{
+  "name": "t:sections.main-order.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

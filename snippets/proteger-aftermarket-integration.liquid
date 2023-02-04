@@ -1,0 +1,23 @@
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+
+    if (window.Proteger && window.ProtegerShopify && window.Shopify.currency.active === 'JPY') {
+
+      const params = (new URL(document.location)).searchParams;
+
+      let leadToken = params.get('leadToken') ? params.get('leadToken') : params.get('leadtoken');
+
+      if (leadToken) {
+        Proteger.aftermarketModal.open({
+          leadToken: leadToken,
+          onClose: function (plan, product, quantity) {
+            if (plan && product) {
+              ProtegerShopify.addPlanToCart({productId: product.id, plan: plan, quantity: quantity, productHandler: function() {window.location = '/cart'}, modal: false, leadToken: leadToken});
+            }
+          }
+        });
+      }
+    }
+    
+  });
+</script>

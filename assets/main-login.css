@@ -1,0 +1,124 @@
+
+.l-login {
+    padding-bottom: 100px;
+    padding-top: 65px;
+}
+
+.p-login__inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 90px 25px 0px;
+}
+
+.p-login__instruction.c-underline--gray p {
+    margin: 0;
+}
+
+.p-login-btn {
+    padding-bottom: 65px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.p-login__new.l-login__new {
+    padding-top: 10px;
+}
+
+
+.p-login__new--btn {
+    color: #fff;
+}
+
+.l-title.p-login__title {
+    margin: 0 auto;
+    max-width: 100%;
+    box-sizing: content-box;
+}
+
+.c-underline--gray {
+    font-size:16px;
+}
+
+
+/* テーマ固有 IDでの指定を外し、クラスで指定する 1.26 */
+  
+.l-title.p-login__title{
+     padding: 0 4%;
+    width:92%;
+}
+.errors ul {
+    padding: 0;
+}
+.form__message svg {
+    max-width: 30px;
+}
+.form__message {
+    align-items: center;
+    display: flex;
+    font-size: 1.4rem;
+    line-height: 1;
+    margin-top: 1rem;
+    gap: 10px;
+}
+.errors {
+    color: red;
+}
+
+  @media screen and (max-width: 990px) {
+.p-login__instruction.c-underline--gray p {
+    margin: 0;
+}
+.p-login__inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 38px 4% 0;
+  　box-sizing:content-box;
+}
+    .l-title.p-login__title {
+    margin: 0 auto;
+    max-width: 1360px;
+    box-sizing: content-box;
+    gap:10px;
+}
+    .p-login__inner .c-underline--gray {
+    padding-bottom: 22px;
+}
+    .p-login__inner .p-field__lists {
+          padding: 0 0 30px;
+    }
+    .p-login-btn{
+      padding-bottom:30px;
+    }
+    .p-login__new.l-login__new {
+    padding-top: 20px;
+    text-align: center;
+}
+    .p-login__new--button {
+    padding-top: 35px;
+    text-align: center;
+}
+  
+.l-login.p-login {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+    
+  .l-title .c-title-en {
+    font-size: 44px;
+    color: #fff;
+    opacity: 0.07;
+    letter-spacing: 0.1em;
+    margin-top:0px;
+}
+
+   .l-title .c-title-ja {
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+}
+
+    .p-login__instructionTxt {
+    font-size: 14px;
+}
+    
+  }

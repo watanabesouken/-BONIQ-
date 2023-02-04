@@ -1,0 +1,513 @@
+
+/*   1016 BONIQ */
+
+/*   :is(.account,.order)>div:nth-of-type(2) {
+    display: flex;
+    flex-direction: unset;
+    gap: 58px;
+    padding-top: 35px;
+    margin-top:0px;
+} */
+.socialplus-association-wrapper.socialplus-association-wrapper-first.socialplus-association-wrapper-last{
+    display: flex;
+    flex-direction: unset;
+    gap: 58px;
+    padding-top: 15px;
+    margin-top:0px;
+}
+
+:is(.account,.order)>div:nth-of-type(2)>div:first-of-type {
+    flex-grow: 1;
+    padding-right: 0;
+     max-width: 950px;
+}
+  .customer tbody td{
+     font-size: 18px;
+  }
+.p-rowgroup-lists, .underlined-link, .customer a{
+   font-size: 18px;
+}
+  .l-title .c-title-en {
+    font-size: 80px;
+    color: #fff;
+    opacity: 0.07;
+    letter-spacing: 0.1em;
+    margin-top:0px;
+    line-height:1;
+}
+
+   .l-title .c-title-ja {
+    font-size: 18px;
+    color: #fff;
+     margin: 0;
+      line-height:1;
+}
+
+:is(.account,.order)>div:nth-of-type(2)>div:first-of-type h2 {
+    display: none;
+  }
+  .customer table {
+    box-shadow: none;
+}
+
+:is(.account,.order) {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+  .customer th:first-of-type, .customer td:first-of-type {
+    padding-left: 0;
+}
+
+  .account table td:first-of-type{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+    
+  .customer tbody td:last-of-type {
+    padding-bottom: 0;
+    padding-right: 0;
+}
+  .account thead th:last-child, .account td:last-child {
+    text-align: right;
+    padding-right: 0;
+}
+  .customer th, .customer td:first-of-type{
+    padding-right: 0;
+  }
+  .customer td {
+    padding-right: 0;
+}
+  .RowDate {
+    width: 13.026vw;
+}
+  #RowOrder {
+    width: 14.342vw;
+}
+  .RowPayment {
+    width: 16.118vw;
+}
+  .RowFullfilment {
+    width: 14.737vw;
+}
+  .RowPrice {
+    width: 4.276vw;
+}
+  #ColumnTotal {
+    width: 8vw;
+}
+  .p-logout-btn {
+    text-align: right;
+    margin-top: 25px;
+  }
+  .p-logout-btn .c-btn {
+    display: inline;
+    padding-bottom: 15px;
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    border-radius: 0px;
+    padding-top: 0;
+    font-size:16px;
+}
+  .c-btn {
+    font-size: 18px;
+    padding: 20px 0;
+    width: 353px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+}
+.c-btn.c-btn-gray{
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,.2);
+    color: #fff;
+    transition:.3s all ease-in;
+      padding: 20px 0;
+}
+.c-btn.c-btn-gray:hover{
+  background-color:#fff;
+  border:1px solid rgba(255,255,255,.2);
+  color:#121212;
+  opacity: 1;
+}
+  .c-btn.c-btn-white {
+/*固定ID変更に伴い  margin: 5px 0; */
+    background: white;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #fff;
+    transition:.3s all ease-in;
+        font-family: yu-gothic-pr6n,sans-serif;
+}
+    .c-btn.c-btn-white:hover{
+      color: #fff;
+      background:transparent;
+      opacity:1;
+    }
+
+  .order-history.p-order-history {
+    border-bottom: 1px solid rgba(225,225,225,0.1);
+}
+
+  .p-title {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+  
+.l-title {
+    margin: 0 auto;
+    max-width: 1360px;
+   padding:0;
+}
+.customer table{
+        border-collapse: separate;
+  }
+
+  .p-order-history th {
+    color: #fff;
+    opacity: 0.5;
+}
+  .customer thead th {
+    padding-top: 0;
+    font-size:18px;
+}
+  .p-customerAddrress h2 {
+    line-height: 1;
+    font-size: 1.6rem;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(225,225,225,0.2);
+    opacity: 0.5;
+    margin-top:10px;
+}
+
+:is(.account,.order) p{
+  margin:0;
+}
+
+.customer.account {
+    max-width: 92%;
+    box-sizing: content-box;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 65px;
+    padding-bottom: 150px;
+}
+
+/*     固定テーマID編集 */
+div#account .p-white-btn {
+    padding: 25px 0 0px;
+}
+
+div#account
+
+.p-customerAddrress p {
+    padding-top: 25px;
+}
+
+  @media screen and (max-width: 750px) {
+    .p-customerAddrress p {
+    padding-top: 20px;
+}
+/*     固定テーマID編集 */
+/*     .customer.account.section-template--16667551465725__main-padding {
+    box-sizing: content-box;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-bottom: 150px;
+} */
+    div#account {
+    box-sizing: content-box;
+    padding-left: 25px;
+    padding-top: 25px;
+    padding-bottom: 150px;
+}
+   .customer thead:after, .customer tfoot:before{
+      display:none;
+    }
+  }
+  @media screen and (max-width: 990px) {
+
+   #account .p-customerBtn__lists {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    margin-bottom: 0!important;
+    padding-left: 0px!important;
+    gap: 8px;
+}
+      .customer tbody td:last-of-type {
+    padding-bottom: 15px;
+    padding-right: 15px;
+}
+      .p-logout-btn .c-btn {
+    display: inline;
+    padding-bottom: 15px;
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    border-radius: 0px;
+    padding-top: 0;
+    font-size:16px;
+}
+    .p-customerAddrress h2{
+      margin:0px;
+    }
+      .c-btn.c-btn-white {
+    font-size:18px;
+    margin:0px;
+}
+    .c-btn{
+        font-size:18px;
+        width:100%;
+        max-width:320px;
+    }
+      .p-title {
+      flex-direction: column;
+    align-items: baseline;
+}
+    .customer thead th {
+    padding-top: 0;
+    font-size:12px;
+}
+   #ColumnDate {
+    padding-top: 0px;
+    padding-bottom: 20px;
+      text-align: left;
+           width: 18.667vw;
+}
+    #ColumnOrder{
+    padding-top: 0px;
+    padding-bottom: 20px;
+       text-align: left;
+    width: 14.3vw;
+}
+#ColumnPayment{
+    padding-top: 0px;
+    padding-bottom: 20px;
+    text-align: left;
+      width: 18.667vw;
+    }
+    #ColumnFulfillment{
+  　　　padding-top: 0px;
+    padding-bottom: 20px;
+    text-align: left;
+    }
+    #ColumnFulfillment {
+    width: 19.333vw;
+}
+
+   #ColumnTotal{
+  　　　padding-top: 0px;
+    padding-bottom: 20px;
+    }
+    
+    .account table td:first-of-type {
+    padding-right: 8px;
+    width: 18.667vw;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    letter-spacing:0.001em;
+}
+    .account thead th:last-child, .account td:last-child {
+    text-align: center;
+    padding-right: 0!important;
+}
+    
+    #RowOrder {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+    .customer tbody td{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    }
+    
+     .RowDate {
+       width: 18.667vw;
+}
+  #RowOrder {
+    width: 14.8vw;
+}
+  .RowPayment {
+   width: 18.667vw;
+}
+  .RowFullfilment {
+    width: 17.333vw;
+}
+  .RowPrice {
+    width: unset;
+}
+  #ColumnTotal {
+    width: unset;
+}
+    
+    .customer tr{
+   display: flex;
+   flex-direction:unset;
+   justify-content:space-between;
+    }
+    .customer thead, .customer th, .customer tfoot td:first-of-type {
+    display: block;
+}
+    .customer td:before{
+      display:none;
+    }
+  :is(.account,.order)>div:nth-of-type(2)>div:first-of-type {
+    flex-grow: 1;
+    padding-right:0px;
+    max-width: 100%;
+}
+  :is(.account,.order)>div:nth-of-type(2) {
+    display: flex;
+   flex-direction:column;
+    gap: 147px;
+    padding-top: 55px;
+    margin-top:0px;
+}
+  
+　　 .customer tbody td{
+    font-size: 1.2rem;
+  }
+    
+  .underlined-link, .customer a{
+     font-size: 1.2rem;
+  }
+  .customer tbody td{
+     font-size: 1.2rem;
+  }
+
+  .l-title .c-title-en {
+    font-size: 44px;
+    color: #fff;
+    opacity: 0.07;
+    letter-spacing: 0.1em;
+    margin-top:0px;
+}
+
+   .l-title .c-title-ja {
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+}
+  .p-order-container__itemRight {
+    font-size: 14px;
+}
+  .p-order-container__itemLeft {
+    font-size: 12px;
+}
+　　 }
+
+  @media screen and (max-width: 374px) {
+
+    .customer td {
+    display: flex;
+    justify-content: center;
+}
+    .customer tbody td {
+    font-size: 10px;
+}
+       .customer thead th {
+    font-size: 10px;
+}
+    .customer thead th {
+    font-size: 10px;
+    display: flex;
+    justify-content:center;
+    }
+
+      .customer thead th:first-of-type {
+    font-size: 10px;
+    display: flex;
+    justify-content:baseline;
+    }
+    
+  }
+/* 　　　レスポンシブ対応 */
+
+
+
+  /*   1016 BONIQ */
+
+  /*   1205 BONIQ */
+.p-customerBtn__lists {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    margin-bottom: 0!important;
+    padding-left:0px!important;
+}
+.p-customerBtn__lists .c-btn.c-btn-white {
+        padding: 15px 0;
+    background:#fff;
+    text-align: center;
+    border: 1px solid  rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    color: #181818;
+    transition: .3s all ease-in;
+    display: inline-block;
+      font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius:5px;
+    min-width: 100%;
+}
+/* 95%⇨100％ 1.26 */
+.p-customerBtn__lists .c-btn.c-btn-gray {
+      padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: .3s all ease-in;
+    display: inline-block;
+      font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius:5px;
+    min-width: 100%;
+}
+li.p-customerBtn__list {
+    width: 100%;
+}
+.p-customerBtn__lists .c-btn.c-btn-white:hover{
+     background:transparent;
+      color: #fff;
+}
+.p-customerBtn__lists .c-btn.c-btn-gray:hover{
+      color: #fff;
+      background: rgba(255, 255, 255, 0.3 );
+        background-color: #fff;
+    border: 1px solid rgba(255,255,255,.2);
+    color: #121212;
+    opacity: 1;
+}
+.p-customerBtn__heading {
+  font-style: normal;
+font-weight: 400;
+font-size: 12px;
+    padding: 25px 0 15px;
+}
+
+/* 1.26編集 */
+.socialplus-association-component{
+  max-width:530px;
+}
+#account .l-title.p-login__title.p-title {
+    padding: 0;
+    width: 100%;
+}
